@@ -1,5 +1,5 @@
 const block = document.querySelector('.block');
-const click = document.querySelector('.click');
+
 
 let position = 0;
 
@@ -10,12 +10,9 @@ const move = () =>{
         event()
     }
     block.style.left =  `${position}px`
-    setTimeout(move, 1000)
+    setTimeout(move, 200)
 }
 move()
-
-
-
 
 let count = 0;
 
@@ -26,3 +23,33 @@ function event () {
     }
     block.style.top = `${count}px`
 }
+
+
+//Второй Вариант//===
+
+// const block = document.querySelector('.block')
+//
+// let positionX = 0;
+// let positionY = 0;
+//
+// const move = () => {
+//   if (positionX <= 400 && positionY == 0) {
+//     positionX += 50;
+//     block.style.left = `${positionX}px`;
+//     setTimeout(move, 200);
+//   } else if (positionX >= 400 && positionY <= 400) {
+//     positionY += 50;
+//     block.style.top = `${positionY}px`;
+//     setTimeout(move, 200);
+//   } else if (positionY >= 400 && positionX != 0) {
+//     positionX -= 50;
+//     block.style.left = `${positionX}px`;
+//     setTimeout(move, 200);
+//   } else if (positionX == 0 && positionY != 0) {
+//     positionY -= 50;
+//     block.style.top = `${positionY}px`;
+//     setTimeout(move, 200);
+//   }
+// };
+//
+// move();
