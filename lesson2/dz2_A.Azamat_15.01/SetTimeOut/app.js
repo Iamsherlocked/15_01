@@ -3,14 +3,18 @@ const click = document.querySelector('.click');
 
 let position = 0;
 
-click.addEventListener("click", () =>{
+const move = () =>{
     position+= 50;
     if (position > 450){
         position = 0
         event()
     }
     block.style.left =  `${position}px`
-})
+    setTimeout(move, 1000)
+}
+move()
+
+
 
 
 let count = 0;
@@ -21,6 +25,4 @@ function event () {
         count = 0;
     }
     block.style.top = `${count}px`
-
 }
-
