@@ -1,5 +1,5 @@
 // let string = prompt('tell me ur name')
-//
+
 // let regExp = /a/i;
 // console.log(string.match(regExp))
 

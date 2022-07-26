@@ -1,11 +1,12 @@
-// const doHomework = (subject, callback) => {
-//     alert(`Starting me ${subject} homework`)
-//     callback()
-// }
-// const alertFinished = () =>{
-//     alert("done")
-// }
-// doHomework('math', alertFinished);
+const doHomework = (subject, callback) => {
+    alert(`Starting me ${subject} homework`)
+    // callback()
+    callback()
+}
+const alertFinished = () =>{
+    alert("done")
+}
+doHomework('math', alertFinished);
 
 const btn = document.querySelectorAll('button');
 
@@ -30,9 +31,13 @@ btns.addEventListener("click", (event)=>{
             event.target.classList.remove("red")
         } else if (event.target.classList.contains("blue")){
             event.target.classList.add("black")
-        } else  {
+        } else if (event.target.classList.contains("jock")){
+            event.target.classList.add("green")
+        } else {
             event.target.classList.add("red")
-        }
-    }
+        }}
 })
 
+const topScroll = document.body.scrollTop
+
+console.log(topScroll)

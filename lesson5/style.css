@@ -1,0 +1,43 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("img/dollar.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.som input{
+    width: 300px;
+    height: 40px;
+    margin-bottom: 30px;
+    background-color: sienna;
+}
+
+.wrapper{
+    display: inline-block;
+}
+
+.som{
+    display: flex;
+    flex-direction: column;
+}
+.usd{
+    display: flex;
+    flex-direction: column;
+}
+
+.usd input{
+    width: 300px;
+    height: 40px;
+    background-color: sienna;
+}
+
+.som label{
+    font-size: 18px;
+}
+.usd  label{
+    font-size: 18px;
+}

@@ -41,12 +41,12 @@ showContent()
 
 
 const modal = document.querySelector(".modal")
-const modakTrigger =  document.querySelector(".btn_white")
+const modalTrigger =  document.querySelector(".btn_white")
 const closeModalBtn = document.querySelector(".modal__close")
 
 console.log(modal)
-// console.log(modakTrigger)
-// console.log(closeModalBtn)
+console.log(modalTrigger)
+console.log(closeModalBtn)
 
 const openModal = ()=>{
     modal.classList.add("show")
@@ -62,12 +62,13 @@ const closeModal = () =>{
 
 closeModalBtn.addEventListener("click", closeModal)
 
-modakTrigger.addEventListener("click", openModal)
+modalTrigger.addEventListener("click", openModal)
 modal.addEventListener("click", (event) =>{
     if (event.target === modal){
         closeModal()
     }
 })
+console.log(modal)
 
 
 
@@ -86,19 +87,19 @@ onscroll = function(){
     }
 };
 
+// console.log(document.documentElement.scrollHeight)
+// console.log(document.documentElement.clientHeight)
+
 
 //DZ_Automatic_Slider_With_SetInterval
 
+
 let i = 0;
 function nextImages () {
-    if (i === tabContent.length -1){
-        tabContent[i].style.display = 'none'
+    if (i === tabContent.length -1 ){
+        showContent()
         i = 0;
-        tabContent[0].style.display = 'block'
-    } else  {
-        tabContent[i].style.display = 'none'
-        // i = 0;
-        tabContent[i+1].style.display = 'block';
+    } else {
         i++
     }
     hideContent()
@@ -106,8 +107,52 @@ function nextImages () {
 
 }
 setInterval(nextImages, 2000)
+console.log( tabContent.length -1)
 
 
+const form = document.querySelectorAll("form")
+
+form.forEach((item)=>{
+    postData(form)
+});
+
+const message = {
+    loading: 'Идет загрузка!',
+    succses: 'Спасибо, скоро свяжемся!',
+    fail: 'Что-то пошло не так'
+}
+
+function postData(form){
+    form.addEventListener("submit", (e) =>{
+        e.preventDefault();
+
+    const messageBlock = document.createElement('div')
+    messageBlock.textContent = message.loading
+        form.append(messageBlock)
+
+        const request = new  XMLHttpRequest()
+        request.open("POST", "server.php")
+        request.setRequestHeader("Content-type", "application/json");
+
+        const formData = new FormData(form)
+        const object = {}
+
+        formData.forEach((item, i) =>{
+            object[i] = i;
+
+        });
+        const json = JSON.stringify(object)
+        request.send(json)
+        request.addEventListener("load", ()=>{
+            if (request.status === 200){
+                console.log(request.response)
+                messageBlock.textContent = message.succses
+            } else {
+                messageBlock.textContent = message.fail
+            }
+        })
+    })
+}
 
 
 

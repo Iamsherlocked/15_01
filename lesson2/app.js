@@ -30,9 +30,9 @@ const sayHi = () => {
 const interval = setInterval(sayHi, 1000);
 // clearInterval(interval);
 
-// setTimeout(() => {
-//   clearInterval(interval);
-// }, 5000);
+setTimeout(() => {
+  // clearInterval(interval);
+}, 5000);
 
 // ========
 
@@ -44,7 +44,7 @@ const interval = setInterval(sayHi, 1000);
 //   displayName();
 // };
 // init();
-//
+
 // const func = (num) => {
 //   const culk = () => {
 //     console.log(1000 * num);
@@ -53,7 +53,7 @@ const interval = setInterval(sayHi, 1000);
 // };
 //
 // func(24);
-//
+
 // const funk = (n) => {
 //   return function (num) {
 //     return n + num;
